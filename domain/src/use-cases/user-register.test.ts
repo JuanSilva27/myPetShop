@@ -28,7 +28,6 @@ describe('UserRegister Use Case', () => {
             role: 'client',
             password: 'password123',
         }
-        })
         const result = userRegister(payload);
         expect(result).toEqual({
             error: {
@@ -36,4 +35,5 @@ describe('UserRegister Use Case', () => {
                 message: 'Email is required',
             }
         });
+        })
 })
