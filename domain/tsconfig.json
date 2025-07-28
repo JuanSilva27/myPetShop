@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "outDir": "dist",
+        "module": "nodenext",
+        "moduleResolution": "nodenext",
+        "target": "ESNext",
+        "strict": true,
+        "esModuleInterop": true,
+        "types": ["vitest"]
+    },
+    "exclude": ["node_modules", "dist"],
+    "include": ["src/**/*.ts"]
+
+}
