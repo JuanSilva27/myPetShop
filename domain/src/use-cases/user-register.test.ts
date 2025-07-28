@@ -49,7 +49,7 @@ describe('UserRegister Use Case', () => {
         expect(result).toEqual({
             error: {
                 code: 'InvalidData',
-                message: 'password is required',
+                message: 'Password is required',
             }
         });
     });
