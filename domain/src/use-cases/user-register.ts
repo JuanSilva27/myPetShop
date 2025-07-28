@@ -2,7 +2,7 @@ import { User } from "../entities/User"
 
 export type UserRegisterRequestModel = Omit<User, 'id' | 'role'>
 
-export function userRegister({ email, password }: UserRegisterRequestModel) {
+export function userRegister({ email, password, name }: UserRegisterRequestModel) {
   if (!email || email.trim() === '') {
     return {
       error: {
@@ -16,6 +16,14 @@ export function userRegister({ email, password }: UserRegisterRequestModel) {
       error: {
         code: 'InvalidData',
         message: 'Password is required',
+      }
+    }
+  }
+  if (name.trim() === '') {
+    return {
+      error: {
+        code: 'InvalidData',
+        message: 'Name is required',
       }
     }
   }
