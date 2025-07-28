@@ -53,4 +53,21 @@ describe('UserRegister Use Case', () => {
             }
         });
     });
+
+    test('whit an empty name, fails with InvalidData', () => {
+        const payload = {
+            email: 'test@test456.com',
+            name: '',
+            telephone: '123456789',
+            role: 'client',
+            password: 'password123',
+        }
+        const result = userRegister(payload);
+        expect(result).toEqual({
+            error: {
+                code: 'InvalidData',
+                message: 'Name is required',
+            }
+        });
+    });
 })
