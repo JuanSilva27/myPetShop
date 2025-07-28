@@ -1,3 +1,8 @@
 export function userRegister() {
-  throw new Error("UserRegister use case not implemented");
+  return {
+    error: {
+      code: 'InvalidData',
+      message: 'Email already in use',
+    }
+  }
 }
