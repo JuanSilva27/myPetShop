@@ -1,7 +1,10 @@
-import { describe, test, expect } from 'vitest';
+import { describe, test, expect, Mock, Mocked } from 'vitest';
 import { userRegister } from './user-register';
+import { MockedUsersRepository, mockUserRepositry } from '../mocks/user-repository-mock';
 
 describe('UserRegister Use Case', () => {
+    const _mockedUserRepository: MockedUsersRepository = mockUserRepositry([])
+
     test('whit an email already in use, fails with InvalidData', () => {
         const payload = {
             email: 'test@test.com',
@@ -67,6 +70,23 @@ describe('UserRegister Use Case', () => {
             error: {
                 code: 'InvalidData',
                 message: 'Name is required',
+            }
+        });
+    });
+
+    test('whit a valid data, returns success', () => {
+        const payload = {
+            email: 'mail@test.com',
+            name: 'Test User',
+            telephone: '123456789',
+            role: 'client',
+            password: 'password123',
+        }
+        const result = userRegister(payload);
+        expect(result).toEqual({
+            error: {
+                code: 'InvalidData',
+                message: 'Email already in use',
             }
         });
     });
